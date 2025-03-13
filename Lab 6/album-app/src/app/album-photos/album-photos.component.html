@@ -1,0 +1,9 @@
+<h2>Фотографии альбома {{ albumId }}</h2>
+<button (click)="return()">Назад</button>
+<div style="display: grid; grid-template-columns: repeat(4,1fr);">
+  <div *ngFor="let photo of photos" style="margin: 10px; text-align: center;">
+    <img [src]="photo.thumbnailUrl" [alt]="photo.title">
+    <p>{{ photo.title }}</p>
+  </div>
+</div>
+
