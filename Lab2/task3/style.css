@@ -1,0 +1,292 @@
+body {
+    margin: 0;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+.logo img {
+    margin-top: 5px;
+    height: 23px;
+    margin-left: 45px;
+}
+.nav-links{
+    margin-right: 180px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+.nav-links li:hover{
+    text-decoration: solid underline 2px;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+}
+
+.actions button {
+    display: flex;
+    align-items: center;  
+    background: none;
+    border: none;
+    font-size: 1іpx;
+    cursor: pointer;
+    padding: 5px 10px;
+    gap: 5px; 
+}
+
+.actions img {
+    height: 20px;
+    width: auto;
+}
+
+#all-mic {
+    height: 12px;
+}
+
+#sign-in-img {
+    height: 20px;
+}
+#next-head{
+    height: 58px;
+    display: flex;
+    background-color: #0067B8;
+    align-items: center;
+    justify-content: center;
+    
+}
+#next-head a{
+    color: white;
+    text-decoration: none;
+}
+#next-head img{
+    margin-top: 5px;
+    width: 30px;
+}
+#next-head:hover{
+    text-decoration: solid underline white 2px;
+
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Радиокнопки для управления слайдами */
+input[name="slider"] {
+    display: none;
+}
+
+/* Слайдер */
+.slides {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+}
+
+/* Слайды */
+.slide {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    text-align: left;
+    color: black;
+    padding: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Фоновые изображения */
+.slide-1 {
+    background-image:url(Highlight-Hero-Windows11-GlobalLaunch_VP5-1920x600.avif);
+    color: white;
+    justify-content: left;
+    
+}
+
+.slide-2 {
+    background-image: url(Highlight-M365-Icon-Bounce_VP5-1920x600.avif);
+    justify-content: left;
+}
+
+.slide-content {
+    max-width: 500px;
+    margin-bottom: 100px;
+}
+
+.slide h1 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.slide p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.buy-button {
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buy-button:hover {
+    background-color: #004a8f;
+}
+
+/* Навигационные точки */
+.dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Переключение слайдов */
+#slide1:checked ~ .slides {
+    transform: translateX(0%);
+}
+
+#slide2:checked ~ .slides {
+    transform: translateX(-50%);
+}
+
+/* Подсвечивание активной точки */
+#slide1:checked ~ .dots label:nth-child(1),
+#slide2:checked ~ .dots label:nth-child(2) {
+    background-color: #717171;
+}
+
+.shop-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    text-align: center;
+}
+
+.shop-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shop-item img {
+    width: 30px; 
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.shop-item a {
+    text-decoration: none;
+    color: #0067b8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.shop-item a:hover {
+    text-decoration: underline;
+}
+
+
+.boxik-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.boxik-1, .boxik-2, .boxik-3, .boxik-4 {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.boxik-1 img, .boxik-2 img, .boxik-3 img, .boxik-4 img {
+    width: 100%;
+    height: auto;
+}
+.boxik-3 button,.boxik-4 button{
+    margin-top: 31px;
+}
+.boxik-content {
+    padding: 20px;
+}
+
+.boxik-content h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+.boxik-content p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.boxik-content button {
+    background-color: #0067b8;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.boxik-content button:hover {
+    background-color: #004a8f;
+}

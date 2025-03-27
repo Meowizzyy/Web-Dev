@@ -1,0 +1,12 @@
+img{
+    border: 2px solid;
+    border-radius: 5px;
+}
+button{
+    background-color: #EEABC4;
+    border-radius: 5px;
+    border: 2px solid;
+    margin-left: 10px;
+    height: 40px;
+    cursor: pointer;
+}

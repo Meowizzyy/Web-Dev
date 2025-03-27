@@ -1,0 +1,11 @@
+<h1>Список альбомов</h1>
+<button (click) = "home()">home</button>
+<button (click) = "favorites()">Favorites</button>
+<ul>
+  <li *ngFor="let album of albums">
+    <!-- Кликабельный заголовок для перехода к детальному просмотру -->
+    <span (click)="goToDetail(album.id)" style="cursor:pointer;">{{ album.title }}</span>
+    <!-- Кнопка удаления -->
+    <button (click)="deleteAlbum(album.id)">Удалить</button>
+  </li>
+</ul>
