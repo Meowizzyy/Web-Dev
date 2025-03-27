@@ -1,0 +1,13 @@
+a{
+    text-decoration: none;
+    color:#ec96ae;
+    font-size: 25px;
+}
+button{
+    background-color: #EEABC4;
+    border-radius: 5px;
+    height: 30px;
+    width: 70px;
+    cursor: pointer;
+    border: 2px solid;
+}
