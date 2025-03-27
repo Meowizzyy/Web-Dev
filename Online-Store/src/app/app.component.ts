@@ -1,16 +1,24 @@
 import { Component } from '@angular/core';
-import { ProductCardComponent } from '../product/product-card.component';
-import { PRODUCTS } from '../product/products';
-import { Product } from '../product/product.model';
+import { CATEGORIES } from '../../data/categories';
+import { ProductListComponent } from './product-list/product-list.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  standalone:true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  imports: [ProductCardComponent,CommonModule] 
+  styleUrls: ['./app.component.css'],
+  imports : [ProductListComponent,CommonModule]
 })
+export type CategoryKey = 'smartphones' | 'laptops' | 'tablets' | 'accessories';
+
 export class AppComponent {
-  products: Product[] = PRODUCTS;
+  categories: CategoryKey[] = Object.keys(CATEGORIES) as CategoryKey[];
+  selectedCategory: CategoryKey | null = null;
+
+  selectCategory(category: CategoryKey) {
+    this.selectedCategory = category;
+  }
 }
+
+

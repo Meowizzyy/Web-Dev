@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { CATEGORIES } from './data/categories';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './components/product-list/product-list.component';
-type CategoryKey = keyof typeof CATEGORIES; // ✅ теперь TypeScript понимает ключи объекта
-
+type CategoryKey = keyof typeof CATEGORIES; 
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -13,7 +12,7 @@ type CategoryKey = keyof typeof CATEGORIES; // ✅ теперь TypeScript по�
 })
 export class AppComponent {
   categories: CategoryKey[] = Object.keys(CATEGORIES) as CategoryKey[];
-  selectedCategory: CategoryKey | null = null; // ✅ теперь переменная понимает, какие значения может принимать
+  selectedCategory: CategoryKey | null = null; 
 
   selectCategory(category: CategoryKey) {
     this.selectedCategory = category;

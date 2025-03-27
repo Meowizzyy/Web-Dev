@@ -1,0 +1,10 @@
+<div class="product-card">
+    <img [src]="product.imageUrl" alt="{{ product.name }}">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <span class="price">{{ product.price }}$</span>
+  
+    <button (click)="likeProduct()">❤️ {{ product.likes }}</button>
+    <button (click)="removeProduct()">🗑️ Удалить</button>
+  </div>
+  

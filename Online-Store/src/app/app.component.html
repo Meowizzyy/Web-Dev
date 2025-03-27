@@ -1,3 +1,7 @@
-<div class="product-grid">
-  <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+<div class="categories">
+  <button *ngFor="let category of categories" (click)="selectCategory(category)">
+    {{ category }}
+  </button>
 </div>
+
+<app-product-list *ngIf="selectedCategory !== null" [products]="CATEGORIES[selectedCategory!]"></app-product-list>

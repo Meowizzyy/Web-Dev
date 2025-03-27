@@ -1,11 +1,14 @@
-<h1>Список альбомов</h1>
+<h2>Все альбомы</h2>
 <button (click) = "home()">home</button>
-<button (click) = "favorites()">Favorites</button>
+<button (click)="favorites()">Favorites</button>
+<div>
+  <input [(ngModel)]="newAlbumTitle" placeholder="Введите название нового альбома">
+  <button (click)="createAlbum()">Create</button>
+</div>
+
 <ul>
   <li *ngFor="let album of albums">
-    <!-- Кликабельный заголовок для перехода к детальному просмотру -->
-    <span (click)="goToDetail(album.id)" style="cursor:pointer;">{{ album.title }}</span>
-    <!-- Кнопка удаления -->
-    <button (click)="deleteAlbum(album.id)">Удалить</button>
+  <span (click)="goToDetail(album)" style="cursor:pointer;">{{ album.title }}</span>
+    <button (click)="deleteAlbum(album.id)">Delete</button>
   </li>
 </ul>

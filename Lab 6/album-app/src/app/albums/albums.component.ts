@@ -1,36 +1,84 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // импортируем CommonModule
-import { AlbumsService, Album } from '../albums.service';
+// albums.component.ts
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlbumsService, Album } from '../albums.service';
 
 @Component({
   selector: 'app-albums',
-  standalone: true,  // если используете standalone компоненты
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.css']
 })
 export class AlbumsComponent {
   albums: Album[] = [];
-  constructor(private albumsService: AlbumsService, private router: Router) {}
+  newAlbumTitle: string = '';
+  private albumsService = inject(AlbumsService);
+  private router = inject(Router);
 
   ngOnInit(): void {
-    this.albumsService.getAlbums().subscribe(data => this.albums = data);
+    this.loadAlbums();
   }
 
-  deleteAlbum(id: number): void {
-    this.albumsService.deleteAlbum(id).subscribe(() => {
-      this.albums = this.albums.filter(album => album.id !== id);
+  loadAlbums(): void {
+    this.albumsService.getAlbums().subscribe(data => {
+      const localAlbums = JSON.parse(localStorage.getItem('localAlbums') || '[]');
+      this.albums = [...data, ...localAlbums];
     });
   }
 
-  goToDetail(id: number): void {
-    this.router.navigate(['/albums', id]);
+  deleteAlbum(albumId: number | undefined): void {
+    if (albumId === undefined) return; 
+    this.albums = this.albums.filter(album => album.id !== albumId);
+    this.updateLocalStorage();
+}
+
+
+goToDetail(album: Album): void {
+  this.router.navigate(['/albums', album.id], { state: { album } });
+}
+
+  createAlbum(): void {
+    if (!this.newAlbumTitle.trim()) {
+      return;
+    }
+
+    const newId = this.albums
+    .map(album => album.id ?? 0) 
+    .reduce((max, id) => Math.max(max, id), 0) + 1;
+
+
+    
+
+    const newAlbum: Album = {
+      id: newId,
+      userId: 1, 
+      title: this.newAlbumTitle.trim()
+    };
+
+    
+    const localAlbums = JSON.parse(localStorage.getItem('localAlbums') || '[]');
+    localAlbums.push(newAlbum);
+    localStorage.setItem('localAlbums', JSON.stringify(localAlbums));
+
+    this.albums.push(newAlbum);
+    this.newAlbumTitle = '';
   }
-  home(){
-    this.router.navigate(['/home']);
-  }
-  favorites(){
+  favorites(): void {
     this.router.navigate(['/favorites']);
   }
+  home():void{
+    this.router.navigate(['/home']);
+  }
+  
+
+  private updateLocalStorage(): void {
+    localStorage.setItem(
+        'localAlbums',
+        JSON.stringify(this.albums.filter(a => (a.id ?? 0) > 100)) 
+    );
+}
+
 }

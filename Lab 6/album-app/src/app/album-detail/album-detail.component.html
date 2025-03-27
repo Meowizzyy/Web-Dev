@@ -1,13 +1,17 @@
 <div *ngIf="album">
-  <h2>Альбом "{{ album.title }}"</h2>
+  <h2>Альбом: 
+    <span *ngIf="!isEditing">{{ album.title }}</span>
+    <input *ngIf="isEditing" [(ngModel)]="newTitle">
+  </h2>
   <p><strong>ID:</strong> {{ album.id }}</p>
   <p><strong>User ID:</strong> {{ album.userId }}</p>
 
-  <p><strong>Название альбома:</strong> <span>{{ album.title }}</span></p>
-
-  <button (click)="return()">Назад</button>
-  <button (click)="goToPhotos()">Фотографии</button>
+  <button (click)="return()">Back</button>
+  <button (click)="goToPhotos()">Photos</button>
   <button (click)="addToFavorites()">
-    {{ isFavorite ? 'В избранных' : 'Добавить в избранное' }}
+    {{ isFavorite ? 'In favorites' : 'Add to favoirte' }}
   </button>
+  <button *ngIf="!isEditing" (click)="isEditing = true">Update</button>
+  <button *ngIf="isEditing" (click)="saveTitle()">save</button>
+  <button *ngIf="isEditing" (click)="isEditing = false">cancel</button>
 </div>

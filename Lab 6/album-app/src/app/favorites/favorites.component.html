@@ -1,8 +1,8 @@
 <h2>Избранные альбомы</h2>
-<button (click) = "home()">home</button>
+<button (click) = 'home()'>Home</button>
 <ul>
   <li *ngFor="let album of favoriteAlbums">
-    <a [routerLink]="['/albums', album.id]">{{ album.title }}</a>
+    <a (click)="goToAlbum(album.id)">{{ album.title }}</a>
+    <button (click)="removeFromFavorites(album.id)">Удалить</button>
   </li>
 </ul>
-

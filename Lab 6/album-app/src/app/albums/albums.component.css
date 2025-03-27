@@ -19,3 +19,8 @@ li:hover{
     font-size: large;
 
 }
+div input{
+    background-color: #EEABC4;
+    border-radius: 5px;
+    height: 20px;
+}
