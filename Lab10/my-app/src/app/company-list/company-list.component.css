@@ -1,0 +1,61 @@
+
+.company-list {
+  list-style-type: none;
+  padding: 0;
+  }
+  .company-list li {
+  margin-bottom: 20px;
+  }
+  .company-info {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  transition: 0.2s ease-in-out;
+  }
+  .company-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+  }
+  .action-buttons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  }
+  .delete-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  }
+  .edit-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  }
+  .create-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #01861b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  }
+  .edit-button:hover {
+  background-color: #0056b3;
+  }
+  .delete-button:hover {
+  background-color: #b30101;
+  }
+  .company-info:hover{
+    background-color: #882ee2;
+  }
